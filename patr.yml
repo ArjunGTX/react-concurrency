@@ -1,0 +1,26 @@
+version: v0
+kind: Pipeline
+name: Default
+services: []
+steps:
+  - name: Install Dependencies
+    image: node:latest
+    commands:
+      - npm install
+    next: Build Code
+  - name: Build Code
+    image: node:latest
+    commands:
+      - npm run build
+    next: Publish on Patr
+  - name: Publish on Patr
+    image: patrcloud/cli:latest
+    commands:
+      - patr login -u "$USERNAME" -p "$PASSWORD"
+      - patr workspace switch "$WORKSPACE_ID"
+      - patr site upload --site ./build "gamma-patr" --msg "Patr CI - Auto deploy"
+    environment:
+      USERNAME: samyak-gangwal
+      PASSWORD:
+        from_secret: PATR_PASSWORD
+      WORKSPACE_ID: 7b99fbb6d88141f0ae9c3204a2841ec2
