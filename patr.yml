@@ -20,7 +20,6 @@ steps:
       - patr workspace switch "$WORKSPACE_ID"
       - patr site upload --site ./build "gamma-patr" --msg "Patr CI - Auto deploy"
     environment:
-      USERNAME: samyak-gangwal
-      PASSWORD:
-        from_secret: PATR_PASSWORD
-      WORKSPACE_ID: 7b99fbb6d88141f0ae9c3204a2841ec2
+      USERNAME: test-user
+      PASSWORD: Vicara@123
+      WORKSPACE_ID: 72fdc2925bfe4c12a36c062a90ec3a7c
