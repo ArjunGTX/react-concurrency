@@ -18,7 +18,7 @@ steps:
     commands:
       - patr login -u "$USERNAME" -p "$PASSWORD"
       - patr workspace switch "$WORKSPACE_ID"
-      - patr site upload --site ./build "gamma-patr" --msg "Patr CI - Auto deploy"
+      - patr site upload --site ./build "Test" --msg "Patr CI - Auto deploy"
     environment:
       USERNAME: test-user
       PASSWORD: Vicara@123
