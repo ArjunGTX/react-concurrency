@@ -7,19 +7,3 @@ steps:
     image: node:latest
     commands:
       - npm install
-    next: Build Code
-  - name: Build Code
-    image: node:latest
-    commands:
-      - npm run build
-    next: Publish on Patr
-  - name: Publish on Patr
-    image: patrcloud/cli:latest
-    commands:
-      - patr login -u "$USERNAME" -p "$PASSWORD"
-      - patr workspace switch "$WORKSPACE_ID"
-      - patr site upload --site ./build "Test" --msg "Patr CI - Auto deploy"
-    environment:
-      USERNAME: test-user
-      PASSWORD: Vicara@123
-      WORKSPACE_ID: 72fdc2925bfe4c12a36c062a90ec3a7c
