@@ -3,7 +3,7 @@ kind: Pipeline
 name: Default
 services: []
 steps:
-  - name: Install
+  - name: Install Dependencies
     image: node:latest
     commands:
       - npm install
